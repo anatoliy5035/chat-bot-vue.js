@@ -19,10 +19,12 @@ var app = new Vue({
     methods: {
         sendMessage: function (e) {
             e.preventDefault();
-            var randomNum = Math.floor(Math.random()*this.fakeMessages.length);
-            var randomMessage = this.fakeMessages[randomNum];
-            var that = this;
-            var myDataCopy = Object.assign({}, this.myData);
+            if (this.currentInputMessage.length) {
+                console.log(this.currentInputMessage)
+                var randomNum = Math.floor(Math.random()*this.fakeMessages.length);
+                var randomMessage = this.fakeMessages[randomNum];
+                var that = this;
+                var myDataCopy = Object.assign({}, this.myData);
                 myDataCopy.message = this.currentInputMessage;
                 this.dialogMessages.push(myDataCopy);
                 this.currentInputMessage = '';
@@ -34,6 +36,7 @@ var app = new Vue({
                         me: false
                     });
                 }, 2000)
+            }
         }
     }
 });

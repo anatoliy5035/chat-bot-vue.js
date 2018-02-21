@@ -6639,6 +6639,7 @@ button.close {
 .button {
   background: none;
   border: none;
+  outline: none;
   display: inline-block; }
 
 .chat-input {
