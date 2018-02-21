@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="application-name" content="AVA">
+    <meta name="msapplication-config" content="./browserconfig.xml">
+    <title>AVA</title>
+    <meta name="keywords" content="AVA"/>
+    <meta name="description" content="AVA"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <!--main!-->
+    <main>
+        <div class="container">
+            <div class="chat-wrapper">
+                <div class="chat">
+                    <div class="chat__navigation">
+                        <div class="navigation">
+                            <div class="navigation__search">
+                                <form>
+                                    <div class="input-search-wrapper">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                        <input class="input" placeholder="Type for search" type="text" name="message">
+                                        <div class="hamburger hamburger--collapse js-hamburger">
+                                            <div class="hamburger-box">
+                                                <div class="hamburger-inner"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="navigation__peoples">
+                                <div class="navigation-people">
+                                    <img class="navigation-people__photo" src="images/user3-picture.jpg" alt="">
+                                    <div class="navigation-people__name">John Rambo</div>
+                                </div>
+                                <div class="navigation-people">
+                                    <img class="navigation-people__photo" src="images/user4-picture.jpg" alt="">
+                                    <div class="navigation-people__name">Yevhenia</div>
+                                </div>
+                                <div class="navigation-people">
+                                    <img class="navigation-people__photo" src="images/user2-picture.jpg" alt="">
+                                    <div class="navigation-people__name">Ivanova Ivanna</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="chat-app" class="chat__body">
+                        <div class="chat-messages">
+                            <div class="chat-messages__wrap">
+                                <div class="chat-messages__spacer"></div>
+                                <div class="chat-messages__item"  v-bind:class="{ me: dialog.me, you: !dialog.me}" v-for="dialog in dialogMessages">
+                                    <div class="chat-message">
+                                        <div class="chat-message__text">
+                                            <p>{{dialog.message}}</p>
+                                        </div>
+                                        <div class="chat-message__avatar">
+                                            <img v-bind:src="dialog.img" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <form v-on:submit="sendMessage">
+                                <div class="chat-input__inside">
+                                    <input class="input" placeholder="Type your message" type="text" v-model="currentInputMessage" name="message">
+                                    <button class="button chat-input--button" type="submit">
+                                        <i class="glyphicon glyphicon-send"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--main!-->
+<script src="js/jquery.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
